@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        #h1{
+            color: white;
+            background-color:rgb(4, 252, 128);
+            padding: 5px;
+
+        }
+        #number-1{
+            background-color: rgb(59, 53, 53);
+            padding: 10px;
+            color: white;
+        }
+        #number-2{
+            background-color: rgb(59, 53, 53);
+            padding: 10px;
+            color: white;
+            margin-top: 10px;
+        }
+        #fun{
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            background-color: rgb(4, 21, 252);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form id="calculator-form">
+            <h1 id="h1">CALCULATOR</h1>
+            <input type="text" id="number-1" placeholder="ENTER THE NUMBER-1"><br>
+            <input type="text" id="number-2" placeholder="ENTER THE NUMBER-2"><br>
+            <input type="button" id="fun" onclick="add()" value="ADD">
+            <input type="button" id="fun" onclick="sub()" value="SUB">
+            <input type="button" id="fun" onclick="mul()" value="MUL">
+            <input type="button" id="fun" onclick="div()" value="DIV">
+            <button id="fun" onclick="clear()">Clear</button>
+            <div id="result"></div>
+        </form>
+    </center>
+    <script>
+        function add() {
+            let number1 = Number(document.getElementById("number-1").value);
+            let number2 = Number(document.getElementById("number-2").value);
+            let result = document.getElementById("result");
+
+            let h1 = document.createElement("h1");  
+            let total = number1 + number2;
+
+            h1.textContent = "RESULT(+): " + total; 
+
+            result.innerHTML = "";
+            result.appendChild(h1); 
+        }
+
+        function sub(){
+            let number1 = Number(document.getElementById("number-1").value);
+            let number2 = Number(document.getElementById("number-2").value);
+            let result = document.getElementById("result");
+
+            let h1 = document.createElement("h1");  
+            let total = number1 - number2;
+
+            h1.textContent = "RESULT(-): " + total; 
+
+            result.innerHTML = "";
+            result.appendChild(h1); 
+        }
+        function mul(){
+            let number1 = Number(document.getElementById("number-1").value);
+            let number2 = Number(document.getElementById("number-2").value);
+            let result = document.getElementById("result");
+
+            let h1 = document.createElement("h1");  
+            let total = number1 * number2;
+
+            h1.textContent = "RESULT(*): " + total; 
+
+            result.innerHTML = "";
+            result.appendChild(h1); 
+        }
+        function div(){
+            let number1 = Number(document.getElementById("number-1").value);
+            let number2 = Number(document.getElementById("number-2").value);
+            let result = document.getElementById("result");
+            let h1=document.createElement("h1");
+            if (number2 !== 0) {
+                h1.textContent = "RESULT(/): " + (number1 / number2);
+            } else {
+                h1.textContent = "RESULT: Cannot divide by zero";
+            }
+            result.innerHTML = "";
+            result.appendChild(h1);
+
+        }
+        function clear() {
+            document.getElementById("calculator-form").reset();
+        }
+    </script>
+</body>
+</html>
